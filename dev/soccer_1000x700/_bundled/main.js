@@ -16,7 +16,7 @@ gsap.defaults({
 	ease: "power3.out"
 });
 
-var READ_T2 = 1.8;
+var READ_T2 = 3;
 var read = {
 	percentGoBack: 2.5,
 	betOnNFL: 2.2,
@@ -82,7 +82,7 @@ function slider() {
 	tl.from(".t1a", { duration: .26, x: "-=130", y: "+=30", opacity: 0 }, "t1");
 	tl.from(".t1b", { duration: .26, x: "+=130", y: "-=30", opacity: 0 }, "t1+=.4");
 
-	tl.add(bgFadeOut(1.5));
+	tl.add(bgFadeOut(3.5));
 	return tl;
 }
 

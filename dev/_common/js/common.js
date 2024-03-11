@@ -8,7 +8,7 @@ gsap.defaults({
 });
 
 
-const READ_T2 = 1.8
+const READ_T2 = 3
 const read = {
 	percentGoBack: 2.5,
 	betOnNFL: 2.2, 
@@ -75,7 +75,7 @@ function slider(read=2){
 	tl.from(".t1a", {duration:.26, x:"-=130", y:"+=30", opacity:0}, "t1")
 	tl.from(".t1b", {duration:.26, x:"+=130", y:"-=30", opacity:0}, "t1+=.4")
 	
-	tl.add(bgFadeOut(1.5))
+	tl.add(bgFadeOut(3.5))
 	return tl
 }
 
