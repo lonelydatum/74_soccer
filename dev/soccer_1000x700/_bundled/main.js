@@ -133,14 +133,14 @@ function b_320x50() {
 	tl.to(".logo1", { duration: .2, opacity: 0 }, "+=.5");
 
 	tl.add("t1");
-	tl.from(".t1a", { duration: .26, y: "-=50", opacity: 0 }, "t1");
-	tl.from(".t1b", { duration: .26, y: "+=50", opacity: 0 }, "t1+=.5");
+	tl.from(".t1a", { duration: .2, y: "-=50", opacity: 0 }, "t1");
+	tl.from(".t1b", { duration: .2, y: "+=50", opacity: 0 }, "t1+=.5");
 
-	tl.to([".bg", ".t1"], { duration: .2, opacity: 0 }, "+=" + 1.5);
+	tl.to([".bg", ".t1"], { duration: .2, opacity: 0 }, "+=" + 3.5);
 
 	// tl.from(".logo2", {duration:.3, opacity:0}, "+=.1")
 	tl.from(".t2", { duration: .3, opacity: 0 }, "+=.3");
-	tl.to(".t2", { duration: .2, opacity: 0 }, "+=2");
+	tl.to(".t2", { duration: .2, opacity: 0 }, "+=" + READ_T2);
 
 	tl.from(".t4", { duration: .3, opacity: 0 }, "+=.3");
 	tl.from(".cta", { duration: .3, opacity: 0 }, "+=.3");
