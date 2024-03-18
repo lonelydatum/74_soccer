@@ -16,13 +16,8 @@ gsap.defaults({
 	ease: "power3.out"
 });
 
-var READ_T2 = 3;
-var read = {
-	percentGoBack: 2.5,
-	betOnNFL: 2.2,
-	njasb: 2,
-	losingBy: 2.5
-};
+var READ_T1 = { soccer: 3.5, golf: 1.1 };
+var READ_T2 = { soccer: 3, golf: 2.5 };
 
 var w = bannerSize.w;
 var h = bannerSize.h;
@@ -62,12 +57,7 @@ function init() {
 		} });
 	tl.set(".frame1", { opacity: 1 });
 	if (window.universalBanner.name === "hockey") {
-
 		document.getElementById("legalContent").innerHTML = "Terms and conditions apply.  Individuals must be 19 years of age or older to participate in online sports betting made available by OLG.  Must be a resident of Ontario located in the province at the time of registration, where applicable, and play. © NHL 2022.  All Rights Reserved.";
-	} else if (window.universalBanner.name === "baseball") {
-		document.getElementById("legalContent").innerHTML = "Terms and conditions apply.  Individuals must be 19 years of age or older to participate in online sports betting made available by OLG.  Must be a resident of Ontario located in the province at the time of registration, where applicable, and play. Major League Baseball trademarks and copyrights are used with permission of Major League Baseball. Visit MLB.com";
-	} else if (window.universalBanner.name === "basketball") {
-		document.getElementById("legalContent").innerHTML = "Terms and conditions apply.  Individuals must be 19 years of age or older to participate in online sports betting made available by OLG.  Must be a resident of Ontario located in the province at the time of registration, where applicable, and play. The NBA and individual NBA member team identifications are the intellectual property of NBA Properties, Inc. and the respective NBA member teams. (c) 2022 NBA Properties, Inc. All rights reserved.";
 	}
 	return tl;
 }
@@ -82,7 +72,7 @@ function slider() {
 	tl.from(".t1a", { duration: .26, x: "-=130", y: "+=30", opacity: 0 }, "t1");
 	tl.from(".t1b", { duration: .26, x: "+=130", y: "-=30", opacity: 0 }, "t1+=.4");
 
-	tl.add(bgFadeOut(3.5));
+	tl.add(bgFadeOut(READ_T1[universalBanner.name]));
 	return tl;
 }
 
@@ -91,7 +81,7 @@ function standard() {
 	tl.add(slider(), "+=.5");
 
 	tl.from(".t2", { duration: .3, opacity: 0 }, "+=.3");
-	tl.to(".t2", { duration: .2, opacity: 0 }, "+=" + READ_T2);
+	tl.to(".t2", { duration: .2, opacity: 0 }, "+=" + READ_T2[universalBanner.name]);
 
 	tl.from(".t4", { duration: .3, opacity: 0 }, "+=.3");
 	tl.from(".cta", { duration: .3, opacity: 0 }, "+=.3");
@@ -136,11 +126,11 @@ function b_320x50() {
 	tl.from(".t1a", { duration: .2, y: "-=50", opacity: 0 }, "t1");
 	tl.from(".t1b", { duration: .2, y: "+=50", opacity: 0 }, "t1+=.5");
 
-	tl.to([".bg", ".t1"], { duration: .2, opacity: 0 }, "+=" + 3.5);
+	tl.to([".bg", ".t1"], { duration: .2, opacity: 0 }, "+=" + READ_T1[universalBanner.name]);
 
 	// tl.from(".logo2", {duration:.3, opacity:0}, "+=.1")
 	tl.from(".t2", { duration: .3, opacity: 0 }, "+=.3");
-	tl.to(".t2", { duration: .2, opacity: 0 }, "+=" + READ_T2);
+	tl.to(".t2", { duration: .2, opacity: 0 }, "+=" + READ_T2[universalBanner.name]);
 
 	tl.from(".t4", { duration: .3, opacity: 0 }, "+=.3");
 	tl.from(".cta", { duration: .3, opacity: 0 }, "+=.3");
@@ -164,7 +154,6 @@ exports.b_1000x700 = b_1000x700;
 exports.b_970x70 = b_970x70;
 exports.origin = _helpersHelpersJs.origin;
 exports.standard = standard;
-exports.read = read;
 exports.slider = slider;
 exports.ender = ender;
 exports.logoFader = logoFader;
